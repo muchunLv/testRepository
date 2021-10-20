@@ -1,0 +1,183 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hello Bulma!</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
+        Hello World
+      </h1>
+      <p class="subtitle">
+        My first website with <strong>Bulma</strong>!
+      </p>
+
+    </div>
+    <div class="columns">
+      <form class="column is-one-third" method="post" action="/form">
+        <div class="field">
+          <label class="label">Name</label>
+          <div class="control">
+            <input name="name" class="input" type="text" placeholder="Text input" required>
+            <!-- required -->
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Number of Tickets</label>
+          <div class="control has-icons-left has-icons-right">
+            <input name="numTickets" class="input is-success" type="number" min=1 max=4>
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </div>
+          <p class="help is-success">This number of tickets is available</p>
+        </div>
+
+        <div class="field">
+          <label class="label">Email</label>
+          <div class="control has-icons-left has-icons-right">
+            <input name="email" class="input is-danger" type="email" placeholder="Email input" value="hello@">
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-exclamation-triangle"></i>
+            </span>
+          </div>
+          <p class="help is-danger">This email is invalid</p>
+        </div>
+
+
+        <div class="field">
+          <label class="label">Team</label>
+          <div class="control">
+            <div class="select">
+              <select name="team" onchange="teamSelected(this.value)">
+                <option value="">Select your favourite team here.</option>
+                <option value="Avengers">Avengers</option>
+                <option value="JLA">Justice League</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Superhero</label>
+          <div class="control">
+            <div class="select">
+              <select name="superhero" id="superhero" disabled>
+              </select>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <!-- <div class="field">
+          <label class="label">Message</label>
+          <div class="control">
+            <textarea class="textarea" placeholder="Textarea"></textarea>
+          </div>
+        </div> -->
+
+        <div class="field">
+          <label class="label">Message</label>
+          <div class="control">
+            <textarea name="massage" class="textarea" placeholder="Textarea" rows="2"></textarea>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <label class="checkbox">
+              <input type="checkbox">
+              I agree to the <a href="#">terms and conditions</a>
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <label class="radio">
+              <input type="radio" name="payment" value="Credit Card">
+              Pay by Credit Card
+            </label>
+            <label class="radio">
+              <input type="radio" name="payment" value="Paypal">
+              Pay by Paypal
+            </label>
+          </div>
+        </div>
+
+
+        <div class="field is-grouped">
+          <div class="control">
+            <button type="submit" class="button is-link">Submit</button>
+          </div>
+          <div class="control">
+            <button type="reset" class="button is-link is-light">Cancel</button>
+             <!-- reset -->
+          </div>
+        </div>
+
+
+
+      </form>
+    </div>
+  </section>
+
+  <script>
+    var avengers = ["Captain America", "Iron Man", "Thor", "Hulk", "Black Widow", "Hawkeye"];
+    var jla = ["Superman", "Batman", "Wonder Woman", "Flash", "Green Lantern", "Aquaman"];
+
+
+    function teamSelected(team) {
+      // alert(team);
+      var superheroElem = document.getElementById("superhero");
+      superheroElem.options.length = 0; //clears all the options in the second drop-down list.
+
+      if (team == "Avengers") {
+
+        avengers.forEach(function (item) {
+          var option = document.createElement("option");
+          option.text = item;
+          option.value = item;
+          superheroElem.add(option);
+        });
+
+        superheroElem.disabled = false;
+
+      } else if (team == "JLA") {
+
+        jla.forEach(function (item) {
+          var option = document.createElement("option");
+          option.text = item;
+          option.value = item;
+          superheroElem.add(option);
+        });
+
+        superheroElem.disabled = false;
+
+      } else {
+
+        superheroElem.disabled = true;
+      }
+
+    }
+  </script>
+
+
+</body>
+
+</html>

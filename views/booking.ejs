@@ -1,0 +1,5 @@
+<%= booking.name %>, <%= booking.numTickets %>, <%= booking.superhero %>
+
+<form action="/bookings/delete/<%= booking.$loki %>" method="post">
+    <button type="submit">Delete</button>
+</form>
